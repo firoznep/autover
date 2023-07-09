@@ -1,0 +1,11 @@
+.footerWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  column-gap: 2rem;
+}
+.active {
+  color: var(--sky-blue);
+}

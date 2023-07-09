@@ -1,0 +1,21 @@
+.brand {
+  color: var(--yellow);
+  text-align: center;
+  animation: 10s infinite alternate slidein;
+  animation-fill-mode: both;
+  margin: 1rem;
+}
+
+@keyframes slidein {
+  from {
+    /* margin-left: 10%; */
+    rotate: 3deg;
+    /* width: 150%; */
+  }
+
+  to {
+    /* margin-left: 0%; */
+    /* width: 100%; */
+    rotate: -3deg;
+  }
+}

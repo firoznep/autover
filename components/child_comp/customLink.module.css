@@ -1,0 +1,16 @@
+.footerLink {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--blue-gray);
+}
+.footerLinkItem {
+  font-size: medium;
+}
+.footerLink:active {
+  color: var(--red);
+}
+.footerLink:focus {
+  color: var(--sky-blue);
+}
