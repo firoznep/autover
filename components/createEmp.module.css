@@ -1,0 +1,23 @@
+.fieldSet {
+  max-width: 40rem;
+  margin: 1rem 0;
+}
+
+.fieldSet legend {
+  font-weight: bold;
+}
+
+.status {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 0.3rem;
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+}
+.note label {
+  font-weight: bold;
+}

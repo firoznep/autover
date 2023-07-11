@@ -1,0 +1,15 @@
+.container {
+  border: 1px solid var(--sky-blue);
+  padding: 0.5rem;
+}
+.imgNameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--sky-blue);
+  column-gap: 1rem;
+}
+.label {
+  font-weight: bold;
+  margin-right: 1rem;
+}

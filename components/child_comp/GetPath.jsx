@@ -6,17 +6,17 @@ import ListItem from "./ListItem";
 export default function GetPath() {
   const pathname = usePathname();
 
-  return pathname === "/vehicle-list" ? (
+  return pathname === "/vehicles" ? (
     <ListItem
       itemOne={"Add vehicle"}
-      itemTwo={"Vehicle Detail"}
-      linkPathOne={"add-vehicle"}
+      // itemTwo={"Vehicle Detail"}
+      linkPathOne={"/vehicles/add-vehicle"}
     />
-  ) : pathname === "/emp-list" ? (
+  ) : pathname === "/operators" ? (
     <ListItem
       itemOne={"Add Operator"}
-      itemTwo={"Operator Detail"}
-      linkPathOne={"/add-emp"}
+      // itemTwo={"Operator Detail"}
+      linkPathOne={"/operators/add-emp"}
     />
   ) : null;
 }

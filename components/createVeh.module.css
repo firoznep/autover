@@ -1,0 +1,23 @@
+.formContainer {
+  position: absolute;
+  overflow: scroll;
+  top: 2rem;
+  bottom: 6rem;
+}
+
+.fieldSet {
+  vertical-align: middle;
+  margin: 0.5rem auto;
+  padding-bottom: 0.3rem;
+}
+
+.legend {
+  font-weight: bold;
+}
+.status {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 2rem;
+}
