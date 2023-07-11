@@ -155,7 +155,6 @@ const UpdateForm = (id) => {
                     id="status2"
                     name="status"
                     value="inActive"
-                    defaultChecked
                   />
                   <label htmlFor="status2">inActive</label>
                 </div>

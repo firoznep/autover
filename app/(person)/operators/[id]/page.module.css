@@ -1,6 +1,11 @@
 .container {
   border: 1px solid var(--sky-blue);
   padding: 0.5rem;
+  position: absolute;
+  top: 2rem;
+  bottom: 6rem;
+  gap: 0.5rem;
+  overflow: scroll;
 }
 .imgNameContainer {
   display: flex;

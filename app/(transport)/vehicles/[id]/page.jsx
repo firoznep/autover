@@ -1,5 +1,6 @@
 import getVehicle from "@/libs/getVehicle";
 import Image from "next/image";
+import styles from "./page.module.css";
 
 export default async function DinamicPage({ params: { id } }) {
   const vehicleId = await getVehicle(id);
@@ -9,19 +10,26 @@ export default async function DinamicPage({ params: { id } }) {
   };
 
   return (
-    <div>
-      {vehicleId.image ? (
-        <Image
-          alt={vehicleId.make}
-          src={`/images/${pi(vehicleId.image)}`}
-          width={80}
-          height={80}
-        />
-      ) : (
-        <span>No Image</span>
-      )}
+    <div className={styles.container}>
+      <div className={styles.imgNameCon}>
+        {vehicleId.image ? (
+          <Image
+            alt={`Image of ${vehicleId.make}`}
+            src={`/images/${pi(vehicleId.image)}`}
+            width={80}
+            height={80}
+          />
+        ) : (
+          <span>No Image</span>
+        )}
 
-      <h3>ID: {vehicleId.id}</h3>
+        <div>
+          <div>
+            <span>ID: {vehicleId.id}</span>
+          </div>
+          <span>Plate Number: </span> <span>{vehicleId.plateNum}</span>
+        </div>
+      </div>
 
       <div>
         <span>Created At: </span>{" "}
@@ -50,10 +58,6 @@ export default async function DinamicPage({ params: { id } }) {
       <div>
         <span>Year: </span>{" "}
         <span> {vehicleId.year && vehicleId.year.getFullYear()}</span>
-      </div>
-
-      <div>
-        <span>Plate Number: </span> <span>{vehicleId.plateNum}</span>
       </div>
 
       <div>
