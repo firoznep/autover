@@ -1,5 +1,4 @@
 import { drivers } from "@/libs/data";
-import { Suspense } from "react";
 import ListDisplay from "@/components/ListDisplay";
 
 export default async function Drivers() {
@@ -8,14 +7,12 @@ export default async function Drivers() {
 
   return (
     <>
-      <Suspense fallback={<h4>Loading...</h4>}>
-        <ListDisplay
-          code={"drCode"}
-          filterBy={"name"}
-          linkPath={"operators"}
-          obj={res}
-        />
-      </Suspense>
+      <ListDisplay
+        code={"drCode"}
+        filterBy={"name"}
+        linkPath={"operators"}
+        obj={res}
+      />
     </>
   );
 }

@@ -1,3 +1,4 @@
+import Success from "@/components/Success";
 import styles from "./page.module.css";
 import { drivers, vehicles } from "@/libs/data";
 
@@ -14,6 +15,7 @@ export default async function Home() {
         <div className={styles.items}>
           <span>Total Vehicles: </span> <span>{vlcs.length}</span>
         </div>
+        <Success message={"test"} />
       </div>
     </main>
   );

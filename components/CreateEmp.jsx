@@ -8,6 +8,7 @@ import FormItem from "./child_comp/FormItem";
 import SelectDrop from "./child_comp/SelectDrop";
 import Title from "./child_comp/Title";
 import CustomBtn from "./child_comp/CustomBtn";
+import Success from "./Success";
 
 const CreateEmp = () => {
   const formReducer = (state, events) => {
@@ -25,7 +26,7 @@ const CreateEmp = () => {
     e.preventDefault();
 
     createEmp(formData)
-      .then(() => alert("'Congratulation...', Employee Added successfully."))
+      .then(() => <Success message={"Employee Added Successfully."} />)
       .catch((err) =>
         alert("ERROR!!! Something went worng... (Check Duplicate value)")
       );

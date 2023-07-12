@@ -51,9 +51,11 @@ export default function ListDisplay({ obj = {}, filterBy, code, linkPath }) {
               <span>{itm[code]}</span>
               <span>{itm[filterBy]}</span>
               {
-                <Link href={`/${linkPath}/${itm.id}`}>
-                  <FaCircleInfo className={styles.info} />
-                </Link>
+                <div>
+                  <Link href={`/${linkPath}/${itm.id}`}>
+                    <FaCircleInfo className={styles.info} />
+                  </Link>
+                </div>
               }
 
               {linkPath === "operators" ? (

@@ -1,8 +1,10 @@
 .container {
-  position: absolute;
-  top: 2rem;
-  bottom: 6rem;
+  position: fixed;
   overflow: scroll;
+  right: 0;
+  top: 2em;
+  bottom: 6em;
+  width: 80%;
 }
 
 .imgNameCon {
@@ -11,5 +13,28 @@
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--sky-blue);
+  border-bottom: 2px solid var(--sky-blue);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+  width: fit-content;
+}
+.imgNameCon img {
+  border-radius: 10%;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.items > :first-child {
+  font-weight: bold;
+}
+.items > :last-child {
+  color: var(--dark-blue);
+}
+.items:hover {
+  background-color: #e0e0e0;
 }

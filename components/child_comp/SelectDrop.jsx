@@ -19,7 +19,7 @@ const SelectDrop = ({ label, name, values, onChange }) => {
         {values &&
           values.map((v, i) => {
             return (
-              <option value={v} key={i}>
+              <option key={i} placeholder={v}>
                 {v}
               </option>
             );

@@ -7,15 +7,11 @@ export default async function Vehicles() {
   res.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   return (
-    <>
-      <Suspense fallback={<h4>Loading...</h4>}>
-        <ListDisplay
-          code={"make"}
-          filterBy={"plateNum"}
-          linkPath={"vehicles"}
-          obj={res}
-        />
-      </Suspense>
-    </>
+    <ListDisplay
+      code={"make"}
+      filterBy={"plateNum"}
+      linkPath={"vehicles"}
+      obj={res}
+    />
   );
 }

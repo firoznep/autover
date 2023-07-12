@@ -7,6 +7,7 @@ import FormItem from "./child_comp/FormItem";
 import CustomBtn from "./child_comp/CustomBtn";
 import SelectDrop from "./child_comp/SelectDrop";
 import { FaPenToSquare, FaXmark } from "react-icons/fa6";
+import Success from "./Success";
 
 const VehUpdate = (id) => {
   const [upId, setUpId] = useState(null);
@@ -29,7 +30,7 @@ const VehUpdate = (id) => {
     updateVehicle(formData, id.items)
       .then(() => {
         setShow(false);
-        alert("Updated Successfully.");
+        alert("Vehicle Updated Successfully.");
       })
       .catch((err) => alert("ERROR!!! Something went wrong..."));
   };
@@ -171,7 +172,7 @@ const VehUpdate = (id) => {
             />
 
             <SelectDrop
-              label={"Insurance Type(Company)"}
+              label={"Insurance Company "}
               name={"insurancecompany"}
               onChange={setFormData}
               values={[

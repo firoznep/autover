@@ -3,7 +3,11 @@
   overflow: scroll;
   top: 2rem;
   bottom: 6rem;
-  text-align: center;
+  right: 0;
+  /* left: 20em; */
+  /* text-align: center; */
+  width: 80%;
+  padding-right: 2rem;
 }
 
 .search {
@@ -18,17 +22,17 @@
 }
 .itemsWrapper {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr fit-content(1px) fit-content(1px) 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
   gap: 1rem;
-  text-align: left;
   margin-bottom: 0.5rem;
   align-items: center;
+  justify-content: space-around;
 }
 .itemsWrapper:first-child {
   font-weight: bold;
 }
 .itemsWrapper:hover {
-  background-color: #e9bbd2;
+  background-color: #e0e0e0;
 }
 
 .info {

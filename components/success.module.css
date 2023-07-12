@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(137, 10, 10);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.mes {
+  background-color: green;
+  color: var(--white);
+  /* padding: 2rem 5rem; */
+  font-weight: bold;
+  font-size: xx-large;
+  border-radius: 10px;
+}
+
+.mes p {
+  padding: 1rem 6rem;
+}
+
+.ok {
+  text-align: right;
+  background-color: transparent;
+}
+
+.ok button {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.active {
+  display: flex;
+}

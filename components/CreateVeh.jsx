@@ -25,7 +25,7 @@ const CreateVeh = () => {
 
     createVeh(formData)
       .then(() => {
-        alert(" 'CONGRATULATION...', Vehicle Added to Database Successfully.");
+        alert(" Vehicle Added Successfully.");
       })
       .catch((err) =>
         alert("ERROR!!! Something went wrong...(Check Duplicate value!)")
@@ -158,7 +158,7 @@ const CreateVeh = () => {
         />
 
         <SelectDrop
-          label={"Insurance Type"}
+          label={"Insurance Company"}
           name={"insurancecompany"}
           onChange={setFormData}
           values={[

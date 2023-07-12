@@ -12,5 +12,9 @@ export default function DelVeh({ id }) {
       : alert("Process aborted.");
   };
 
-  return <FaDeleteLeft className={styles.leftDel} onClick={handleDel} />;
+  return (
+    <div>
+      <FaDeleteLeft className={styles.leftDel} onClick={handleDel} />
+    </div>
+  );
 }

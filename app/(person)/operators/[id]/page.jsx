@@ -2,6 +2,7 @@ import getDriver from "@/libs/getDriver";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
+import formatedDate from "@/libs/formatedDate";
 
 export default async function DinamicPage({ params: { id } }) {
   const driverId = await getDriver(id);
@@ -12,7 +13,7 @@ export default async function DinamicPage({ params: { id } }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imgNameContainer}>
+      <div className={styles.imgNameCon}>
         <div>
           {driverId.image ? (
             <Image
@@ -26,80 +27,79 @@ export default async function DinamicPage({ params: { id } }) {
           )}
         </div>
         <div>
-          <div>
-            <span className={styles.label}>Name:</span>
+          <div className={styles.items}>
+            <span>Name:</span>
             <span> {driverId.name}</span>
           </div>
-          <div>
-            <span className={styles.label}>DrCode: </span>
+          <div className={styles.items}>
+            <span>DrCode: </span>
             <span> {driverId.drCode}</span>
           </div>
         </div>
       </div>
 
-      <div>
-        <span className={styles.label}>ID:</span> <span>{driverId.id}</span>
+      <div className={styles.items}>
+        <span>ID:</span> <span>{driverId.id}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>Age: </span>
+      <div className={styles.items}>
+        <span>Age: </span>
         <span> {driverId.age}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>Contact: </span>
+      <div className={styles.items}>
+        <span>Contact: </span>
         <span> {driverId.contact && driverId.contact.toString()}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>Country: </span>
+      <div className={styles.items}>
+        <span>Country: </span>
         <span> {driverId.country}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>Email: </span>
+      <div className={styles.items}>
+        <span>Email: </span>
         <span> {driverId.email}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>License: </span>
+      <div className={styles.items}>
+        <span>License: </span>
         <span> {driverId.license}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>License Category: </span>
+      <div className={styles.items}>
+        <span>License Category: </span>
         <span> {driverId.licensecategory}</span>
       </div>
-      <div>
-        <span className={styles.label}>Status: </span>
+
+      <div className={styles.items}>
+        <span>Status: </span>
         <span> {driverId.status}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>License Expiry Date: </span>
-        <span>
-          {" "}
-          {driverId.licenseExp && driverId.licenseExp.toLocaleDateString()}
-        </span>
+      <div className={styles.items}>
+        <span>License Expiry Date: </span>
+        <span> {driverId.licenseExp && formatedDate(driverId.licenseExp)}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>Updated At: </span>
-        <span> {driverId.updatedAt.toLocaleDateString()}</span>
-      </div>
-      <div>
-        <span className={styles.label}>Created Date: </span>
-        <span> {driverId.createdAt.toLocaleDateString()}</span>
+      <div className={styles.items}>
+        <span>Updated At: </span>
+        <span> {formatedDate(driverId.updatedAt)}</span>
       </div>
 
-      <div>
-        <span className={styles.label}>Note: </span>
+      <div className={styles.items}>
+        <span>Created Date: </span>
+        <span> {formatedDate(driverId.createdAt)}</span>
+      </div>
+
+      <div className={styles.items}>
+        <span>Note: </span>
         <span> {driverId.note}</span>
       </div>
 
       {driverId.vehicleId && (
         <Link href={`/vehicles/${driverId.vehicleId}`}>
-          <span className={styles.label}>Vehicle ID: </span>
+          <span>Vehicle ID: </span>
           <span> {driverId.vehicleId}</span>
         </Link>
       )}
