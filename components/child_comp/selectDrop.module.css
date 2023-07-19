@@ -14,7 +14,7 @@
   outline: none;
   border-bottom: 2px solid var(--sky-blue);
   padding: 0.1rem;
-  max-width: 20rem;
+  max-width: 25rem;
 }
 
 .selectPlaceHolder {

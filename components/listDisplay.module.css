@@ -4,8 +4,6 @@
   top: 2rem;
   bottom: 6rem;
   right: 0;
-  /* left: 20em; */
-  /* text-align: center; */
   width: 80%;
   padding-right: 2rem;
 }
@@ -14,6 +12,8 @@
   padding: 0.5rem;
   margin: 1rem auto;
   min-width: 20rem;
+  font-size: large;
+  font-weight: 700;
   border: none;
   outline: none;
 }
@@ -41,4 +41,52 @@
 }
 .info:hover {
   color: green;
+}
+
+/* for updateForm */
+.editIcon {
+  font-size: x-large;
+  cursor: pointer;
+  color: var(--orange);
+}
+.editIcon:hover {
+  color: orangered;
+}
+
+.showUpdate {
+  position: fixed;
+  overflow: scroll;
+  top: 0;
+  bottom: 6rem;
+  left: 0;
+  right: 0;
+  background-color: var(--white);
+  padding: 1rem;
+}
+
+.fieldSet {
+  max-width: 40rem;
+  margin: 1rem 0;
+}
+
+.fieldSet legend {
+  font-weight: bold;
+}
+
+.status {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 0.3rem;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  column-gap: 1rem;
+}
+.note textarea {
+  max-width: 25rem;
+}
+.note label {
+  font-weight: bold;
 }

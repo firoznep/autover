@@ -1,6 +1,6 @@
 import styles from "./selectDrop.module.css";
 
-const SelectDrop = ({ label, name, values, onChange }) => {
+const SelectDrop = ({ label, name, values, onChange, defaultValue }) => {
   return (
     <div className={styles.selectContainer}>
       <label htmlFor={name} className={styles.label}>
@@ -12,17 +12,13 @@ const SelectDrop = ({ label, name, values, onChange }) => {
         id={name}
         onChange={onChange}
         className={styles.selectField}
+        defaultValue={defaultValue}
       >
-        <option className={styles.selectPlaceHolder}>
-          {`Select ${name}`.toUpperCase()}
-        </option>
+        <option className={styles.selectPlaceHolder} />
+
         {values &&
           values.map((v, i) => {
-            return (
-              <option key={i} placeholder={v}>
-                {v}
-              </option>
-            );
+            return <option key={i}>{v}</option>;
           })}
       </select>
     </div>

@@ -1,22 +1,13 @@
-"use client";
-
-import { useState } from "react";
 import CustomBtn from "./child_comp/CustomBtn";
 import styles from "./success.module.css";
 
-const Success = ({ message }) => {
-  const [show, setShow] = useState(false);
-  const handleClick = () => {
-    setShow(!show);
-  };
-
+const Success = ({ message, onClick }) => {
   return (
-    <div className={`${styles.container} ${show && styles.active}`}>
+    <div className={`${styles.container} `}>
       <div className={styles.mes}>
         <p>{message}</p>
-        <div className={styles.ok}>
-          <CustomBtn text={"OK"} onClick={handleClick} />
-        </div>
+
+        <CustomBtn text={"X"} onClick={onClick} className={styles.ok} />
       </div>
     </div>
   );

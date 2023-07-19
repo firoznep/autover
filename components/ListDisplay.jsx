@@ -4,10 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./listDisplay.module.css";
 import UpdateForm from "./UpdateForm";
-import VehUpdate from "./VehUpdate";
 import DelVeh from "./child_comp/DelVeh";
 import DelBtn from "./child_comp/DelBtn";
-import { FaCircleInfo } from "react-icons/fa6";
+import { FaCircleInfo, FaMagnifyingGlass } from "react-icons/fa6";
+
+import UpdateVeh from "./UpdateVeh";
 
 export default function ListDisplay({ obj = {}, filterBy, code, linkPath }) {
   const [val, setVal] = useState("");
@@ -26,6 +27,7 @@ export default function ListDisplay({ obj = {}, filterBy, code, linkPath }) {
 
   return (
     <div className={styles.container}>
+      <FaMagnifyingGlass />
       <input
         className={styles.search}
         type="search"
@@ -65,7 +67,8 @@ export default function ListDisplay({ obj = {}, filterBy, code, linkPath }) {
                 </>
               ) : (
                 <>
-                  <VehUpdate items={itm.id} />
+                  <UpdateVeh itm={itm} />
+
                   <DelVeh id={itm.id} />
                 </>
               )}

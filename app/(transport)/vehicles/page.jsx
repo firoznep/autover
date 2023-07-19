@@ -1,5 +1,4 @@
 import { vehicles } from "@/libs/data";
-import { Suspense } from "react";
 import ListDisplay from "@/components/ListDisplay";
 
 export default async function Vehicles() {

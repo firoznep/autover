@@ -1,21 +1,21 @@
 "use client";
 
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import styles from "./createVeh.module.css";
 import FormItem from "./child_comp/FormItem";
 import { createVeh } from "@/libs/createVeh";
 import SelectDrop from "./child_comp/SelectDrop";
 import Title from "./child_comp/Title";
 import CustomBtn from "./child_comp/CustomBtn";
+import Success from "./Success";
 
 const CreateVeh = () => {
+  const [test, setTest] = useState(false);
+
   const formReducer = (state, events) => {
     return {
       ...state,
-      [events.target.name]:
-        typeof events.target.value === "string"
-          ? events.target.value.toLowerCase()
-          : events.target.value,
+      [events.target.name]: events.target.value,
     };
   };
   const [formData, setFormData] = useReducer(formReducer, {});
@@ -25,7 +25,8 @@ const CreateVeh = () => {
 
     createVeh(formData)
       .then(() => {
-        alert(" Vehicle Added Successfully.");
+        setTest(true);
+        // alert(" Vehicle Added Successfully.");
       })
       .catch((err) =>
         alert("ERROR!!! Something went wrong...(Check Duplicate value!)")
@@ -34,9 +35,24 @@ const CreateVeh = () => {
 
   return (
     <div className={styles.formContainer}>
+      {test && (
+        <Success
+          message={"Vehicle Updated Successfully."}
+          onClick={() => setTest(false)}
+        />
+      )}
+
       <Title title={"Add Vehicle Form"} />
 
       <form onSubmit={handleSubmit}>
+        <FormItem
+          label={"Registration Number *"}
+          name={"platenum"}
+          type={"text"}
+          onChange={setFormData}
+          required
+        />
+
         <SelectDrop
           label={"Manufacturer *"}
           name={"make"}
@@ -93,20 +109,62 @@ const CreateVeh = () => {
             "Private Transportation",
           ]}
         />
-        <FormItem
-          label={"Year Of Made"}
-          name={"year"}
-          type={"date"}
+
+        <SelectDrop
+          label={"year"}
+          name={"registrationNum"}
           onChange={setFormData}
+          values={[
+            "1990",
+            "1991",
+            "1992",
+            "1993",
+            "1994",
+            "1995",
+            "1996",
+            "1997",
+            "1998",
+            "1999",
+            "2000",
+            "2001",
+            "2002",
+            "2003",
+            "2004",
+            "2005",
+            "2006",
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030",
+          ]}
         />
 
-        <FormItem
-          label={"plate Number *"}
-          name={"platenum"}
+        {/* <FormItem
+          label={"Year"}
+          name={"registrationNum"}
           type={"text"}
           onChange={setFormData}
-          required
-        />
+        /> */}
 
         <FormItem
           label={"Tyre Size"}
@@ -130,13 +188,6 @@ const CreateVeh = () => {
         />
 
         <FormItem
-          label={"Registration Number"}
-          name={"registrationnum"}
-          type={"text"}
-          onChange={setFormData}
-        />
-
-        <FormItem
           label={"Registration Expiry Date"}
           name={"registrationexp"}
           type={"date"}
@@ -144,7 +195,7 @@ const CreateVeh = () => {
         />
 
         <FormItem
-          label={"InsuranceExpiry"}
+          label={"Insurance Expiry Date"}
           name={"insuranceexpiry"}
           type={"date"}
           onChange={setFormData}
@@ -161,19 +212,14 @@ const CreateVeh = () => {
           label={"Insurance Company"}
           name={"insurancecompany"}
           onChange={setFormData}
-          values={[
-            "Comprehensive",
-            "Compulsory",
-            "Insurance Company",
-            "General Takaful",
-          ]}
+          values={["Insurance Company", "General Takaful"]}
         />
 
-        <FormItem
-          label={"Insurance Terms"}
+        <SelectDrop
+          label={"Insurance Terms "}
           name={"insuranceterms"}
-          type={"text"}
           onChange={setFormData}
+          values={["Comprehensive", "Compulsory"]}
         />
 
         <SelectDrop
@@ -200,67 +246,29 @@ const CreateVeh = () => {
             "Haider Holding",
             "SHH&Sons",
             "Sanam Veterinary Care",
-            "Owner house",
+            "Owner House",
             "Mazra",
-            "SAHH&Sons-personal",
+            "SAHH&Sons-Personal",
           ]}
         />
 
-        <fieldset className={styles.fieldSet}>
-          <legend className={styles.legend}>Status:</legend>
-          <div className={styles.status}>
-            <div>
-              <input
-                onChange={setFormData}
-                type="radio"
-                id="status1"
-                name="status"
-                value="active"
-              />
-              <label htmlFor="status1">active</label>
-            </div>
+        <SelectDrop
+          label={"Status"}
+          name={"status"}
+          onChange={setFormData}
+          values={["Active", "In Active", "In Garage"]}
+        />
 
-            <div>
-              <input
-                onChange={setFormData}
-                type="radio"
-                id="status2"
-                name="status"
-                value="inActive"
-                defaultChecked={true}
-              />
-              <label htmlFor="status2">inActive</label>
-            </div>
-
-            <div>
-              <input
-                onChange={setFormData}
-                type="radio"
-                id="status3"
-                name="status"
-                value="inGarage"
-              />
-              <label htmlFor="status3">In Garage</label>
-            </div>
-          </div>
-        </fieldset>
-
-        <div>
-          <div>
-            <label htmlFor="note">Note:</label>
-          </div>
+        <div className={styles.note}>
+          <label htmlFor="note">Note:</label>
           <textarea
             name="note"
             id="note"
             cols="60"
-            rows="5"
+            rows="3"
             onChange={setFormData}
           />
         </div>
-
-        {/* <button type="submit" className={styles.btn}>
-          Submit
-        </button> */}
 
         <CustomBtn text={"Submit"} type={"submit"} />
       </form>

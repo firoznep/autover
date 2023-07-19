@@ -2,4 +2,6 @@
   color: var(--sky-blue);
   padding: 0.3rem;
   text-align: center;
+  text-shadow: 2px 2px 1px var(--black);
+  letter-spacing: 0.15em;
 }

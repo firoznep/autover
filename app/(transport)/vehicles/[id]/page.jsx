@@ -2,6 +2,7 @@ import getVehicle from "@/libs/getVehicle";
 import Image from "next/image";
 import styles from "./page.module.css";
 import formatedDate from "@/libs/formatedDate";
+import upperCaseFirstL from "@/libs/upperCaseFirstL";
 
 export default async function DinamicPage({ params: { id } }) {
   const vehicleId = await getVehicle(id);
@@ -17,7 +18,7 @@ export default async function DinamicPage({ params: { id } }) {
           <Image
             alt={`Image of ${vehicleId.make}`}
             src={`/images/${pi(vehicleId.image)}`}
-            width={100}
+            width={150}
             height={100}
           />
         ) : (
@@ -29,7 +30,7 @@ export default async function DinamicPage({ params: { id } }) {
             <span>ID: </span> <span>{vehicleId.id}</span>
           </div>
           <div className={styles.items}>
-            <span>Plate Number: </span> <span>{vehicleId.plateNum}</span>
+            <span>Registration Number: </span> <span>{vehicleId.plateNum}</span>
           </div>
         </div>
       </div>
@@ -43,11 +44,11 @@ export default async function DinamicPage({ params: { id } }) {
       </div>
 
       <div className={styles.items}>
-        <span>Model: </span> <span>{vehicleId.model}</span>
+        <span>Model: </span> <span>{upperCaseFirstL(vehicleId.model)}</span>
       </div>
 
       <div className={styles.items}>
-        <span>Color: </span> <span>{vehicleId.color}</span>
+        <span>Color: </span> <span>{upperCaseFirstL(vehicleId.color)}</span>
       </div>
 
       <div className={styles.items}>
@@ -60,28 +61,33 @@ export default async function DinamicPage({ params: { id } }) {
 
       <div className={styles.items}>
         <span>Year: </span>{" "}
+        <span> {vehicleId.registrationNum && vehicleId.registrationNum}</span>
+      </div>
+      {/* 
+      <div className={styles.items}>
+        <span>Year: </span>{" "}
         <span> {vehicleId.year && vehicleId.year.getFullYear()}</span>
+      </div> */}
+
+      <div className={styles.items}>
+        <span>Tyre Size: </span>{" "}
+        <span>{vehicleId.tyreSize && vehicleId.tyreSize.toUpperCase()}</span>
       </div>
 
       <div className={styles.items}>
-        <span>Tyre Size: </span> <span>{vehicleId.tyreSize}</span>
+        <span>Chassis Number: </span>{" "}
+        <span>{vehicleId.chasisNum && vehicleId.chasisNum.toUpperCase()}</span>
       </div>
 
       <div className={styles.items}>
-        <span>Chassis Number: </span> <span>{vehicleId.chasisNum}</span>
-      </div>
-
-      <div className={styles.items}>
-        <span>Engine Number: </span> <span>{vehicleId.enginenNum}</span>
+        <span>Engine Number: </span>{" "}
+        <span>
+          {vehicleId.enginenNum && vehicleId.enginenNum.toUpperCase()}
+        </span>
       </div>
 
       <div className={styles.items}>
         <span>Status: </span> <span>{vehicleId.status}</span>
-      </div>
-
-      <div className={styles.items}>
-        <span>Registrtion Number: </span>{" "}
-        <span>{vehicleId.registrationNum}</span>
       </div>
 
       <div className={styles.items}>
@@ -120,7 +126,7 @@ export default async function DinamicPage({ params: { id } }) {
       </div>
 
       <div className={styles.items}>
-        <span>Note: </span> <span>{vehicleId.note}</span>
+        <span>Note: </span> <span>{upperCaseFirstL(vehicleId.note)}</span>
       </div>
 
       <div className={styles.items}>
